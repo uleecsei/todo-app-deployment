@@ -26,6 +26,5 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/ToDo-app/index.html'))
 });
 
-console.log(process.env.PORT);
 
 app.listen(process.env.PORT || 8084);
