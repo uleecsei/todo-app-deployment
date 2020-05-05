@@ -26,13 +26,13 @@ export class TodoService {
     );
   }
   postTodo(task: Tasks): Observable<any> {
-    return this.http.post('http://localhost:8083/api/todos', task);
+    return this.http.post('http://localhost:8084/api/todos', task);
   }
   updateTodo(id: number, title: string): Observable<any> {
-    return this.http.post('http://localhost:8083/api/todos/' + id, {title});
+    return this.http.post('http://localhost:8084/api/todos/' + id, {title});
   }
   deleteTodo(id: number):Observable<any> {
-    return this.http.delete('http://localhost:8083/api/todos/' + id);
+    return this.http.delete('http://localhost:8084/api/todos/' + id);
   }
   addTask(title: string) {
     let maxId = this.tasks.reduce((acc, cur): number => {
