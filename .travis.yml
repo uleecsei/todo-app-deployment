@@ -14,4 +14,4 @@ deploy:
   provider: heroku
   app: todo-app-fe-studying
   api_key:
-    secure: fac7175a-14b6-4e03-b4ba-a2d448eb2850
+    secure: "fac7175a-14b6-4e03-b4ba-a2d448eb2850"
