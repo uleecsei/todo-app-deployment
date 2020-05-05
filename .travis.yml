@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '10'
+
+before_install:
+- npm install -g @angular/cli
+install: npm install
+
+branches:
+  only:
+  - master
+
+deploy:
+  provider: heroku
+  app: todo-app-fe-studying
+  api_key:
+    secure: fac7175a-14b6-4e03-b4ba-a2d448eb2850

@@ -1,0 +1,97 @@
+<mat-tab-group class="tab-group">
+  <mat-tab label="All">
+    <mat-selection-list class="todo-list">
+      <mat-list-item
+        class="todo-list__item"
+        *ngFor="let task of this.service.tasks | search: this.service.searchString"
+      >
+        <div class="todo-list__content">
+          <div class="todo-list__left">
+            <mat-checkbox
+              [checked]="task.completed"
+              (change)="onChange(task.id)"
+              class="todo-list__checkbox"
+            ></mat-checkbox>
+            <div class="todo-list__text-wrapper" [title]="task.title">
+              <span class="todo-list__text">
+                {{task.title}}
+              </span>
+            </div>
+          </div>
+          <div class="todo-list__right">
+            <button (click)="onEdit(task.id)" mat-mini-fab color="primary">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button (click)="onDelete(task.id)" mat-mini-fab color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-selection-list>
+  </mat-tab>
+  <mat-tab label="To Do">
+    <mat-selection-list class="todo-list">
+      <mat-list-item
+        class="todo-list__item"
+        *ngFor="let task of this.service.todoTasks | search: this.service.searchString"
+      >
+        <div class="todo-list__content">
+          <div class="todo-list__left">
+            <mat-checkbox
+              [checked]="task.completed"
+              (change)="onChange(task.id)"
+              class="todo-list__checkbox"
+            ></mat-checkbox>
+            <div class="todo-list__text-wrapper" [title]="task.title">
+              <span class="todo-list__text">
+                {{task.title}}
+              </span>
+            </div>
+          </div>
+          <div class="todo-list__right">
+            <button (click)="onEdit(task.id)" mat-mini-fab color="primary">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button (click)="onDelete(task.id)" mat-mini-fab color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-selection-list>
+  </mat-tab>
+  <mat-tab label="Done"
+    ><mat-selection-list class="todo-list">
+      <mat-list-item
+        class="todo-list__item"
+        *ngFor="let task of this.service.doneTasks |search: this.service.searchString"
+      >
+        <div class="todo-list__content">
+          <div class="todo-list__left">
+            <mat-checkbox
+              [checked]="task.completed"
+              (change)="onChange(task.id)"
+              class="todo-list__checkbox"
+            ></mat-checkbox>
+            <div class="todo-list__text-wrapper" [title]="task.title">
+              <span class="todo-list__text">
+                {{task.title}}
+              </span>
+            </div>
+          </div>
+          <div class="todo-list__right">
+            <button (click)="onEdit(task.id)" mat-mini-fab color="primary">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button (click)="onDelete(task.id)" mat-mini-fab color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item> </mat-selection-list
+  ></mat-tab>
+</mat-tab-group>
