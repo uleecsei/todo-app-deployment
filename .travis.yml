@@ -3,6 +3,7 @@ node_js:
 - '10'
 before_install:
 - npm install -g @angular/cli
+- npm link @angular/cli
 install: npm install
 branches:
   only:
