@@ -19,20 +19,20 @@ export class TodoService {
   constructor(private http: HttpClient, private dialog: MatDialog) {}
 
   fetchTodos(): Observable<Tasks[]> {
-    return this.http.get<Tasks[]>('http://localhost:8083/api/todos').pipe(
+    return this.http.get<Tasks[]>('http://localhost:8080/api/todos').pipe(
       tap((tasks) => (this.tasks = tasks)),
       tap((tasks) => (this.doneTasks = tasks.filter((task) => task.completed))),
       tap((tasks) => (this.todoTasks = tasks.filter((task) => !task.completed)))
     );
   }
   postTodo(task: Tasks): Observable<any> {
-    return this.http.post('http://localhost:8084/api/todos', task);
+    return this.http.post('http://localhost:8080/api/todos', task);
   }
   updateTodo(id: number, title: string): Observable<any> {
-    return this.http.post('http://localhost:8084/api/todos/' + id, {title});
+    return this.http.post('http://localhost:8080/api/todos/' + id, {title});
   }
   deleteTodo(id: number):Observable<any> {
-    return this.http.delete('http://localhost:8084/api/todos/' + id);
+    return this.http.delete('http://localhost:8080/api/todos/' + id);
   }
   addTask(title: string) {
     let maxId = this.tasks.reduce((acc, cur): number => {
