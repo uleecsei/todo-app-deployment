@@ -9,7 +9,7 @@ const todoRoute = require("./server/routes/todo");
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect(process.env.DB_URI, {
+mongoose.connect(process.env.DATABASE_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
