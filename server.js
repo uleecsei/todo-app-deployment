@@ -4,18 +4,19 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const connectConfig =
-  "mongodb+srv://uleecsei:4n8qMgU2bZXFxz9@cluster0-dz2dg.mongodb.net/test?retryWrites=true&w=majority";
+require("dotenv").config();
 const todoRoute = require("./server/routes/todo");
-
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect(connectConfig, {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
   useCreateIndex: true,
+}).then(() => {
+    console.log("Database connected");
+}).catch((err) => {
+    console.log(err);
 });
 
 app.use("/api/todos", todoRoute);
